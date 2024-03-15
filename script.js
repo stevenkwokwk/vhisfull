@@ -20,7 +20,7 @@ function drawChart() {
     //find the max value of the age 65
     var maxValue = Math.max(...filteredData[100]);
     //var maxValue = 20000;
-    var vAxisMaxValue=Math.ceil(maxValue/5000)*5000;
+    var vAxisMaxValue=(Math.ceil(maxValue/5000)+1)*5000;
 
     var data = google.visualization.arrayToDataTable(filteredData);
 
@@ -36,7 +36,10 @@ function drawChart() {
                 min: 0,
                 max: vAxisMaxValue // or a suitable maximum value based on your data
             },
-            gridlines: { count: 6 }
+            gridlines: { 
+                count: 6
+                //multiple: 20000 
+             }
         },
         series: getSeriesOptions(selectedPlans),
         curveType: 'none',
